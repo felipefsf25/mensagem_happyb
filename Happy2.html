@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mensagem Especial 🎉</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #ff4b5c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #mensagem {
+            margin-top: 20px;
+            font-size: 22px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <h2>Mensagem para você! 🎁</h2>
+        <button onclick="mostrarMensagem()">Clique aqui</button>
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        function pegarNome() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get("nome") || "especial";
+        }
+
+        function mostrarMensagem() {
+            const nome = pegarNome();
+            const mensagem = document.getElementById("mensagem");
+
+            mensagem.innerHTML =
+                "Larissa, 🎂 Feliz aniversário, " + nome + "! Que seu dia seja incrível! ✨";
+
+            mensagem.style.opacity = "1";
+        }
+    </script>
+
+</body>
+
+</html>
